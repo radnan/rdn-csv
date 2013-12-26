@@ -1,0 +1,21 @@
+{
+	"name": "radnan/rdn-csv",
+	"description": "Zend Framework 2 module to export and import CSV files",
+	"keywords": ["zf2", "zend", "csv", "export", "import"],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "radnan",
+			"email": "rafiadnan47@gmail.com"
+		}
+	],
+	"require": {
+		"zendframework/zend-http": "2.*",
+		"zendframework/zend-mvc": "2.*"
+	},
+	"autoload": {
+		"psr-0": {
+			"RdnCsv\\": "src/"
+		}
+	}
+}
