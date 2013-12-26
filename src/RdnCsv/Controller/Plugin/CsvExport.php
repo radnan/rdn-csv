@@ -109,8 +109,15 @@ class CsvExport extends AbstractPlugin
 	 */
 	public function getResponse()
 	{
-		/** @var HttpResponse $response */
-		$response = $this->controller->getResponse();
+		if (method_exists($this->controller, 'getResponse'))
+		{
+			/** @var HttpResponse $response */
+			$response = $this->controller->getResponse();
+		}
+		else
+		{
+			$response = new HttpResponse;
+		}
 
 		$fp = fopen('php://output', 'w');
 		ob_start();
