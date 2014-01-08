@@ -1,7 +1,7 @@
 RdnCsv
 ======
 
-The **RdnCsv** ZF2 module makes it really easy to import and export CSV files.
+The **RdnCsv** ZF2 module makes it really easy to export and import CSV files.
 
 ## How to install
 
