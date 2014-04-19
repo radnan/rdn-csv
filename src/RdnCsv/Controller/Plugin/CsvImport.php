@@ -131,9 +131,9 @@ class CsvImport extends AbstractPlugin implements \Countable, \Iterator
 	}
 
     /**
-     * Count elements of an object
+     * Count number of records in file (excluding header if first record is used as header).
      *
-     * @return int The custom count as an integer.
+     * @return int
      */
     public function count()
     {
