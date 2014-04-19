@@ -8,7 +8,7 @@ use Zend\Mvc\Controller\Plugin\AbstractPlugin;
 /**
  * Quickly import CSV files and iterate over each record.
  */
-class CsvImport extends AbstractPlugin implements \Iterator
+class CsvImport extends AbstractPlugin implements \Countable, \Iterator
 {
 	/**
 	 * @var SplFileObject
@@ -129,4 +129,23 @@ class CsvImport extends AbstractPlugin implements \Iterator
 	{
 		return $this->file->valid();
 	}
+
+    /**
+     * Count elements of an object
+     *
+     * @return int The custom count as an integer.
+     */
+    public function count()
+    {
+        $total = 0;
+        foreach ($this->file as $line)
+        {
+            $total++;
+        }
+        if ($this->useFirstRecordAsHeader && $total > 0)
+        {
+            $total--;
+        }
+        return $total;
+    }
 }

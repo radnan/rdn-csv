@@ -47,6 +47,14 @@ CSV
 		}
 	}
 
+	public function testCount()
+	{
+		$csv = new CsvImport;
+		$csv = $csv->__invoke(vfsStream::url('root/foo.csv'));
+
+		$this->assertEquals(4, count($csv));
+	}
+
 	public function testPlugin()
 	{
 		$config = include __DIR__ .'/../../../../config/module.config.php';

@@ -9,6 +9,9 @@ Call the plugin with the path to the CSV file. The plugin will return an iterato
 // inside a controller action
 
 $rows = $this->csvImport('/path/to/foo.csv');
+
+echo count($rows);
+
 foreach ($rows as $row)
 {
 	$header = array_keys($row);
