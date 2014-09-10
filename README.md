@@ -53,6 +53,8 @@ $records = array(
 );
 
 return $this->csvExport('foo.csv', $header, $records);
+// return $this->csvExport('foo.csv', $header, $records, $callback);  // if callback
+// return $this->csvExport('foo.csv', $header, $records, null, ';',"'");  // change delimiter and/or enclosure
 ~~~
 
 The plugin will return a response object which you can then return from your controller action.
