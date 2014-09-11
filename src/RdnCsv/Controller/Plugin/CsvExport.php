@@ -29,17 +29,27 @@ class CsvExport extends AbstractPlugin
 	 * @var callable
 	 */
 	protected $callback;
+        
+        protected $delimiter = ',';
+        
+        protected $enclosure = '"';
 
 	/**
 	 * @param string $filename
 	 * @param array $header
 	 * @param array|\Traversable $records
 	 * @param callable $callback
+         * @param string $delimiter
+         * @param string $enclosure
 	 *
 	 * @return CsvExport|HttpResponse
 	 */
-	public function __invoke($filename = null, $header = null, $records = null, callable $callback = null)
+	public function __invoke($filename = null, $header = null, $records = null, callable $callback = null, $delimiter = ',', $enclosure = '"')
 	{
+            $this->delimiter = $delimiter;
+            $this->enclosure = $enclosure;
+            
+            
 		if (func_num_args() == 0)
 		{
 			return $this;
@@ -121,7 +131,7 @@ class CsvExport extends AbstractPlugin
 
 		$fp = fopen('php://output', 'w');
 		ob_start();
-		fputcsv($fp, $this->header);
+		fputcsv($fp, $this->header, $this->delimiter, $this->enclosure);
 		foreach ($this->content as $i => $item)
 		{
 			try
@@ -131,7 +141,7 @@ class CsvExport extends AbstractPlugin
 				{
 					throw new \RuntimeException('CsvExport can only accept arrays, '. gettype($fields) .' provided at index '. $i .'. Either use arrays when setting the records or use a callback to convert each record into an array.');
 				}
-				fputcsv($fp, $fields);
+				fputcsv($fp, $fields, $this->delimiter, $this->enclosure);
 			}
 			catch (\Exception $ex)
 			{
