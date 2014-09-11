@@ -15,7 +15,7 @@ class CsvExportTest extends \PHPUnit_Framework_TestCase
 		$this->vfs = vfsStream::setup('root');
 	}
 
-	public function testImport()
+	public function testExport()
 	{
 		$csv = new CsvExport;
 		$header = array(
