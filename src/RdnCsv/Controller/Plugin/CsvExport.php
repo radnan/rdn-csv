@@ -29,27 +29,29 @@ class CsvExport extends AbstractPlugin
 	 * @var callable
 	 */
 	protected $callback;
-        
-        protected $delimiter = ',';
-        
-        protected $enclosure = '"';
+
+	/**
+	 * @var string
+	 */
+	protected $delimiter = ',';
+
+	/**
+	 * @var string
+	 */
+	protected $enclosure = '"';
 
 	/**
 	 * @param string $filename
 	 * @param array $header
 	 * @param array|\Traversable $records
 	 * @param callable $callback
-         * @param string $delimiter
-         * @param string $enclosure
+	 * @param string $delimiter
+	 * @param string $enclosure
 	 *
 	 * @return CsvExport|HttpResponse
 	 */
 	public function __invoke($filename = null, $header = null, $records = null, callable $callback = null, $delimiter = ',', $enclosure = '"')
 	{
-            $this->delimiter = $delimiter;
-            $this->enclosure = $enclosure;
-            
-            
 		if (func_num_args() == 0)
 		{
 			return $this;
@@ -62,6 +64,7 @@ class CsvExport extends AbstractPlugin
 			->setName($filename)
 			->setHeader($header)
 			->setContent($records, $callback)
+			->setControls($delimiter, $enclosure)
 			->getResponse()
 		;
 	}
@@ -108,6 +111,21 @@ class CsvExport extends AbstractPlugin
 	{
 		$this->content = $records;
 		$this->callback = $callback;
+		return $this;
+	}
+
+	/**
+	 * Set the CSV controls
+	 *
+	 * @param string $delimiter
+	 * @param string $enclosure
+	 *
+	 * @return CsvExport
+	 */
+	public function setControls($delimiter, $enclosure)
+	{
+		$this->delimiter = $delimiter;
+		$this->enclosure = $enclosure;
 		return $this;
 	}
 
