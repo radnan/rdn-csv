@@ -129,7 +129,7 @@ class CsvExport extends AbstractPlugin
 				$fields = $this->callback ? call_user_func($this->callback, $item) : $item;
 				if (!is_array($fields))
 				{
-					throw new \RuntimeException('CsvExport can only accept arrays, '. gettype($fields) .' provided at index '. $i .'. Either use arrays when setting the records or use a callback to convert each records into an array.');
+					throw new \RuntimeException('CsvExport can only accept arrays, '. gettype($fields) .' provided at index '. $i .'. Either use arrays when setting the records or use a callback to convert each record into an array.');
 				}
 				fputcsv($fp, $fields);
 			}
