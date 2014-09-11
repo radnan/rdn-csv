@@ -38,3 +38,11 @@ return $this->csvExport('foo.csv', $header, $entries, function(Entry $entry)
 	);
 });
 ~~~
+
+## CSV controls
+
+You can customize the `delimiter` and `enclosure` controls when exporting a CSV:
+
+~~~php
+return $this->csvExport('foo.csv', $header, $entries, null, ',', '"');
+~~~
