@@ -58,7 +58,7 @@ CSV;
 		$response = $csv->__invoke('foo.csv', $this->header, $this->records, null, ';', "'");
 
 		$content = <<<CSV
-Year,Make,Model,Description,Price
+Year;Make;Model;Description;Price
 1997;Ford;E350;'ac, abs, moon';3000.00
 
 CSV;
