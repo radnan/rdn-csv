@@ -57,6 +57,8 @@ return $this->csvExport('foo.csv', $header, $records);
 
 The plugin will return a response object which you can then return from your controller action.
 
+[Read more documentation on `csvExport()`](docs/00-csv-export.md)
+
 ### `csvImport()`
 
 Import data from a CSV file using this plugin.
@@ -80,3 +82,5 @@ foreach ($csv as $row)
 ~~~
 
 The plugin returns an iterator that can be used to loop over all the rows in the CSV file.
+
+[Read more documentation on `csvImport()`](docs/01-csv-import.md)
