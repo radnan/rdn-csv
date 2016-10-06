@@ -72,12 +72,12 @@ class CsvImport extends AbstractPlugin implements \Countable, \Iterator
 		$this->file->rewind();
 		if ($this->useFirstRecordAsHeader)
 		{
-			$this->checkHeader();
+			
 			if (!$this->file->valid())
 			{
 				throw new \RuntimeException('Expected first row to be header, but reached EOF instead');
 			}
-
+			$this->checkHeader();
 			$this->header = $this->file->current();
 			$this->file->next();
 
