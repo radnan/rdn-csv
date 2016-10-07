@@ -69,6 +69,7 @@ class CsvImport extends AbstractPlugin implements \Countable, \Iterator
 	 */
 	public function rewind()
 	{
+		$this->checkHeader();
 		$this->file->rewind();
 		if ($this->useFirstRecordAsHeader)
 		{
@@ -77,7 +78,6 @@ class CsvImport extends AbstractPlugin implements \Countable, \Iterator
 			{
 				throw new \RuntimeException('Expected first row to be header, but reached EOF instead');
 			}
-			$this->checkHeader();
 			$this->header = $this->file->current();
 			$this->file->next();
 
