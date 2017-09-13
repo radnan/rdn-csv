@@ -4,6 +4,7 @@ namespace RdnCsv\Controller\Plugin;
 
 use org\bovigo\vfs\vfsStream;
 use Zend\Mvc\Controller\PluginManager;
+use Zend\ServiceManager\Config;
 use Zend\ServiceManager\ServiceManager;
 
 class CsvImportTest extends \PHPUnit_Framework_TestCase
