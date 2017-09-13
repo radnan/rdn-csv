@@ -68,13 +68,13 @@ CSV;
 
 	public function testPlugin()
 	{
-		$config = include __DIR__ .'/../../../../config/module.config.php';
-		$plugins = new PluginManager(new ServiceManager(), $config['controller_plugins']);
+    $configArray = include __DIR__ .'/../../../../config/module.config.php';
+    $pluginManager = new PluginManager(new ServiceManager(), $configArray['controller_plugins']);
 
-		$plugin = $plugins->get('CsvExport');
+		$plugin = $pluginManager->get('CsvExport');
 		$this->assertInstanceOf('RdnCsv\Controller\Plugin\CsvExport', $plugin);
 
-		$anotherPlugin = $plugins->get('CsvExport');
-		$this->assertFalse($plugin === $anotherPlugin);
+		$anotherPlugin = $pluginManager->get('RdnCsv:CsvExport');
+		$this->assertNotSame($plugin, $anotherPlugin);
 	}
 }
