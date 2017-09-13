@@ -1,20 +1,29 @@
 <?php
 
+use RdnCsv\Controller\Plugin;
+use Zend\ServiceManager\Factory\InvokableFactory;
+
 return array(
 	'controller_plugins' => array(
 		'aliases' => array(
-			'CsvExport' => 'RdnCsv:CsvExport',
-			'CsvImport' => 'RdnCsv:CsvImport',
+			'CsvExport'        => Plugin\CsvExport::class,
+			'CsvImport'        => Plugin\CsvImport::class,
+			'RdnCsv:CsvExport' => Plugin\CsvExport::class,
+			'RdnCsv:CsvImport' => Plugin\CsvImport::class,
 		),
 
-		'invokables' => array(
-			'RdnCsv:CsvExport' => 'RdnCsv\Controller\Plugin\CsvExport',
-			'RdnCsv:CsvImport' => 'RdnCsv\Controller\Plugin\CsvImport',
+		'factories' => array(
+			Plugin\CsvExport::class => InvokableFactory::class,
+			Plugin\CsvImport::class => InvokableFactory::class,
 		),
 
 		'shared' => array(
-			'RdnCsv:CsvExport' => false,
-			'RdnCsv:CsvImport' => false,
+			'CsvExport'             => false,
+			'CsvImport'             => false,
+            Plugin\CsvExport::class => false,
+            Plugin\CsvImport::class => false,
+			'RdnCsv:CsvExport'      => false,
+			'RdnCsv:CsvImport'      => false,
 		),
 	),
 );

@@ -5,6 +5,7 @@ namespace RdnCsv\Controller\Plugin;
 use org\bovigo\vfs\vfsStream;
 use Zend\Mvc\Controller\PluginManager;
 use Zend\ServiceManager\Config;
+use Zend\ServiceManager\ServiceManager;
 
 class CsvImportTest extends \PHPUnit_Framework_TestCase
 {
@@ -58,7 +59,7 @@ CSV
 	public function testPlugin()
 	{
 		$config = include __DIR__ .'/../../../../config/module.config.php';
-		$plugins = new PluginManager(new Config($config['controller_plugins']));
+		$plugins = new PluginManager(new ServiceManager(), $config['controller_plugins']);
 
 		$plugin = $plugins->get('CsvImport');
 		$this->assertInstanceOf('RdnCsv\Controller\Plugin\CsvImport', $plugin);

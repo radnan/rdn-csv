@@ -10,8 +10,8 @@
 		}
 	],
 	"require": {
-		"zendframework/zend-http": "2.*",
-		"zendframework/zend-mvc": "2.* || 3.*"
+		"zendframework/zend-http": "^2.6",
+		"zendframework/zend-mvc": "^2.7.9 || ^3.1"
 	},
 	"require-dev": {
 		"mikey179/vfsStream": "*",
