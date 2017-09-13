@@ -52,7 +52,7 @@ $records = array(
 	),
 );
 
-return $this->csvExport('foo.csv', $header, $records);
+return $this->CsvExport('foo.csv', $header, $records);
 ~~~
 
 The plugin will return a response object which you can then return from your controller action.
@@ -66,7 +66,7 @@ Import data from a CSV file using this plugin.
 ~~~php
 // inside a controller action
 
-$csv = $this->csvImport('/path/to/foo.csv');
+$csv = $this->CsvImport('/path/to/foo.csv');
 
 foreach ($csv as $row)
 {
