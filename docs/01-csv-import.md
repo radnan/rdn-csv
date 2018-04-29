@@ -8,7 +8,7 @@ Call the plugin with the path to the CSV file. The plugin will return an iterato
 ~~~php
 // inside a controller action
 
-$rows = $this->csvImport('/path/to/foo.csv');
+$rows = $this->CsvImport('/path/to/foo.csv');
 
 echo count($rows);
 
@@ -26,7 +26,7 @@ By default the plugin will use the first record as the header for each subsequen
 You can toggle this option off by using the seond argument:
 
 ~~~php
-$rows = $this->csvImport('/path/to/foo.csv', false);
+$rows = $this->CsvImport('/path/to/foo.csv', false);
 foreach ($rows as $row)
 {
 	$row == array_values($row);
@@ -38,7 +38,7 @@ foreach ($rows as $row)
 You can customize the `delimiter`, `enclosure`, and `escape` controls when importing a CSV:
 
 ~~~php
-$rows = $this->csvImport('/path/to/foo.csv', true, ',', '"', '\\');
+$rows = $this->CsvImport('/path/to/foo.csv', true, ',', '"', '\\');
 foreach ($rows as $row)
 {
 }

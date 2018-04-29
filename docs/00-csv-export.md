@@ -8,7 +8,7 @@ Call the plugin with the name of the downloadable CSV file, the header, and the 
 ~~~php
 // inside a controller action
 
-$response = $this->csvExport($filename, $header, $records);
+$response = $this->CsvExport($filename, $header, $records);
 
 return $response;
 ~~~
@@ -30,7 +30,7 @@ $header = array(
 	'Last Name',
 );
 
-return $this->csvExport('foo.csv', $header, $entries, function(Entry $entry)
+return $this->CsvExport('foo.csv', $header, $entries, function(Entry $entry)
 {
 	return array(
 		$entry->getFirstName(),
@@ -44,5 +44,5 @@ return $this->csvExport('foo.csv', $header, $entries, function(Entry $entry)
 You can customize the `delimiter` and `enclosure` controls when exporting a CSV:
 
 ~~~php
-return $this->csvExport('foo.csv', $header, $entries, null, ',', '"');
+return $this->CsvExport('foo.csv', $header, $entries, null, ',', '"');
 ~~~
