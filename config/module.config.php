@@ -6,8 +6,8 @@ use Zend\ServiceManager\Factory\InvokableFactory;
 return array(
 	'controller_plugins' => array(
 		'aliases' => array(
-			'CsvExport'        => Plugin\CsvExport::class,
-			'CsvImport'        => Plugin\CsvImport::class,
+			'CsvExport' => Plugin\CsvExport::class,
+			'CsvImport' => Plugin\CsvImport::class,
 			'RdnCsv:CsvExport' => Plugin\CsvExport::class,
 			'RdnCsv:CsvImport' => Plugin\CsvImport::class,
 		),
@@ -18,12 +18,12 @@ return array(
 		),
 
 		'shared' => array(
-			'CsvExport'             => false,
-			'CsvImport'             => false,
-            Plugin\CsvExport::class => false,
-            Plugin\CsvImport::class => false,
-			'RdnCsv:CsvExport'      => false,
-			'RdnCsv:CsvImport'      => false,
+			'CsvExport' => false,
+			'CsvImport' => false,
+			'RdnCsv:CsvExport' => false,
+			'RdnCsv:CsvImport' => false,
+			Plugin\CsvExport::class => false,
+			Plugin\CsvImport::class => false,
 		),
 	),
 );
