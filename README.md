@@ -8,7 +8,7 @@ The **RdnCsv** ZF2 and ZF3 module makes it really easy to export and import CSV 
 1. Use `composer` to require the `radnan/rdn-csv` package:
 
    ~~~bash
-   $ composer require radnan/rdn-csv:1.*
+   $ composer require radnan/rdn-csv:2.*
    ~~~
 
 2. Activate the module by including it in your `application.config.php` file:
