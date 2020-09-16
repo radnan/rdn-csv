@@ -36,7 +36,7 @@ class CsvImport extends AbstractPlugin implements \Countable, \Iterator
 	 *
 	 * @return CsvImport
 	 */
-	public function __invoke($filepath, $useFirstRecordAsHeader = true, $delimiter = ',', $enclosure = '"', $escape = '\\')
+	public function __invoke($filepath, $useFirstRecordAsHeader = true, $delimiter = ',', $enclosure = '"', $escape = '\\', $checkHeader=false)
 	{
 		$this->file = new SplFileObject($filepath);
 		$this->file->setFlags(SplFileObject::READ_CSV | SplFileObject::READ_AHEAD | SplFileObject::SKIP_EMPTY | SplFileObject::DROP_NEW_LINE);
@@ -45,7 +45,10 @@ class CsvImport extends AbstractPlugin implements \Countable, \Iterator
 
 		$this->useFirstRecordAsHeader = $useFirstRecordAsHeader;
 
+		$this->checkHeader = $checkHeader;
+
 		return $this;
+
 	}
 
 	/**
@@ -66,15 +69,18 @@ class CsvImport extends AbstractPlugin implements \Countable, \Iterator
 	 */
 	public function rewind()
 	{
+		$this->checkHeader();
 		$this->file->rewind();
 		if ($this->useFirstRecordAsHeader)
 		{
+			
 			if (!$this->file->valid())
 			{
 				throw new \RuntimeException('Expected first row to be header, but reached EOF instead');
 			}
 			$this->header = $this->file->current();
 			$this->file->next();
+
 		}
 	}
 
@@ -108,6 +114,7 @@ class CsvImport extends AbstractPlugin implements \Countable, \Iterator
 			return array_combine($header, $line);
 		}
 		return $line;
+
 	}
 
 	/**
@@ -131,9 +138,9 @@ class CsvImport extends AbstractPlugin implements \Countable, \Iterator
 	}
 
     /**
-     * Count number of records in file (excluding header if first record is used as header).
+     * Count elements of an object
      *
-     * @return int
+     * @return int The custom count as an integer.
      */
     public function count()
     {
@@ -148,4 +155,24 @@ class CsvImport extends AbstractPlugin implements \Countable, \Iterator
         }
         return $total;
     }
+	/**
+	 * check for the header in the file
+	 *
+	 * @throws \RuntimeException
+	 */
+	public function checkHeader()
+	{
+		$checkHeader = $this->checkHeader;
+		if ($checkHeader) {
+			foreach ($this->file as $line){
+				$data[] = $line;
+			}
+			$headerFile = $data[0];
+			$check = array_values(array_diff($headerFile, $checkHeader));
+			if ($check) {
+				throw new \RuntimeException(sprintf('Not Found Header %s',$check[0]));
+			}
+		}
+	}
+
 }
