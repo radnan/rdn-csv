@@ -1,7 +1,7 @@
 <?php
 
 use RdnCsv\Controller\Plugin;
-use Zend\ServiceManager\Factory\InvokableFactory;
+use Laminas\ServiceManager\Factory\InvokableFactory;
 
 return array(
 	'controller_plugins' => array(
