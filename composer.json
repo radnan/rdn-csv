@@ -16,8 +16,7 @@
     ],
     "require": {
         "laminas/laminas-http": "^2.6",
-        "laminas/laminas-mvc": "^2.7.9 || ^3.1",
-        "laminas/laminas-dependency-plugin": "^1.0"
+        "laminas/laminas-mvc": "^2.7.9 || ^3.1"
     },
     "require-dev": {
         "mikey179/vfsstream": "*",
