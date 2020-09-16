@@ -20,8 +20,8 @@
         "laminas/laminas-dependency-plugin": "^1.0"
     },
     "require-dev": {
-        "mikey179/vfsStream": "*",
-        "phpunit/phpunit": "3.*"
+        "mikey179/vfsstream": "*",
+        "phpunit/phpunit": "^7.5"
     },
     "autoload": {
         "psr-0": {

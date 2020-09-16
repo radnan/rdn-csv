@@ -6,7 +6,7 @@ use org\bovigo\vfs\vfsStream;
 use Laminas\Mvc\Controller\PluginManager;
 use Laminas\ServiceManager\ServiceManager;
 
-class CsvImportTest extends \PHPUnit_Framework_TestCase
+class CsvImportTest extends \PHPUnit\Framework\TestCase
 {
 	private $vfs;
 
