@@ -8,7 +8,7 @@ The **RdnCsv** Laminas module makes it really easy to export and import CSV file
 1. Use `composer` to require the `radnan/rdn-csv` package:
 
    ~~~bash
-   $ composer require radnan/rdn-csv:2.*
+   $ composer require radnan/rdn-csv:3.*
    ~~~
 
 2. Activate the module by including it in your `application.config.php` file:
