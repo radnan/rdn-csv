@@ -3,7 +3,7 @@
 namespace RdnCsv\Controller\Plugin;
 
 use SplFileObject;
-use Zend\Mvc\Controller\Plugin\AbstractPlugin;
+use Laminas\Mvc\Controller\Plugin\AbstractPlugin;
 
 /**
  * Quickly import CSV files and iterate over each record.

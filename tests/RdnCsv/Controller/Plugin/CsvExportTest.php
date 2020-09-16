@@ -3,8 +3,8 @@
 namespace RdnCsv\Controller\Plugin;
 
 use org\bovigo\vfs\vfsStream;
-use Zend\Mvc\Controller\PluginManager;
-use Zend\ServiceManager\ServiceManager;
+use Laminas\Mvc\Controller\PluginManager;
+use Laminas\ServiceManager\ServiceManager;
 
 class CsvExportTest extends \PHPUnit_Framework_TestCase
 {

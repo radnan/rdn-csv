@@ -2,8 +2,8 @@
 
 namespace RdnCsv\Controller\Plugin;
 
-use Zend\Http\PhpEnvironment\Response as HttpResponse;
-use Zend\Mvc\Controller\Plugin\AbstractPlugin;
+use Laminas\Http\PhpEnvironment\Response as HttpResponse;
+use Laminas\Mvc\Controller\Plugin\AbstractPlugin;
 
 /**
  * Easily export data to downloadable CSV files.
