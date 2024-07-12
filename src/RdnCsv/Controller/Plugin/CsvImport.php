@@ -53,7 +53,7 @@ class CsvImport extends AbstractPlugin implements \Countable, \Iterator
 	 *
 	 * @return SplFileObject
 	 */
-	public function getFile()
+	public function getFile(): SplFileObject
 	{
 		return $this->file;
 	}
@@ -64,7 +64,7 @@ class CsvImport extends AbstractPlugin implements \Countable, \Iterator
 	 * @return void
 	 * @throws \RuntimeException
 	 */
-	public function rewind()
+	public function rewind(): void
 	{
 		$this->file->rewind();
 		if ($this->useFirstRecordAsHeader)
@@ -83,7 +83,7 @@ class CsvImport extends AbstractPlugin implements \Countable, \Iterator
 	 *
 	 * @return int
 	 */
-	public function key()
+	public function key(): mixed
 	{
 		return $this->file->key() + 1;
 	}
@@ -93,7 +93,7 @@ class CsvImport extends AbstractPlugin implements \Countable, \Iterator
 	 *
 	 * @return array
 	 */
-	public function current()
+	public function current(): mixed
 	{
 		$line = $this->file->current();
 		if ($this->useFirstRecordAsHeader)
@@ -115,7 +115,7 @@ class CsvImport extends AbstractPlugin implements \Countable, \Iterator
 	 *
 	 * @return void
 	 */
-	public function next()
+	public function next(): void
 	{
 		$this->file->next();
 	}
@@ -125,7 +125,7 @@ class CsvImport extends AbstractPlugin implements \Countable, \Iterator
 	 *
 	 * @return boolean true if not reached EOF, false otherwise.
 	 */
-	public function valid()
+	public function valid(): bool
 	{
 		return $this->file->valid();
 	}
@@ -135,7 +135,7 @@ class CsvImport extends AbstractPlugin implements \Countable, \Iterator
      *
      * @return int
      */
-    public function count()
+    public function count(): int
     {
         $total = 0;
         foreach ($this->file as $line)
